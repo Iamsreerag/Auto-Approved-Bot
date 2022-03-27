@@ -33,6 +33,8 @@ async def autoapprove(client: pr0fess0r_99, message: ChatJoinRequest):
     await client.approve_chat_join_request(chat_id=chat.id, user_id=user.id)
     if APPROVED == "on":
         x = await client.send_message(chat_id=chat.id, text=TEXT.format(mention=user.mention, title=chat.title))
+        await asyncio.sleep(5)
+        await x.delete()
         print("Welcome....")
 
 print("Auto Approved Bot")
